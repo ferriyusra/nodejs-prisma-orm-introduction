@@ -1,0 +1,1 @@
+'npx jest tests / prisma - client.test.js '
