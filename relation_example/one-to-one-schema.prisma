@@ -1,0 +1,16 @@
+model Customer {
+  id String @id @db.VarChar(100)
+  name String
+  email String @unique
+  phone String @unique
+  wallet Wallet? //identify customer allow to not have wallet 
+
+  @@map("customers")
+}
+
+model Wallet {
+ id String @id @db.VarChar(100)
+ balance Int @db.Int
+ customer_id String @unique @db.VarChar(100)
+ customer Customer @relation(fields: [customer_id], references: [id])
+}
