@@ -51,3 +51,19 @@ create table wallet (
   constraint wallet_customer_id_fk foreign key (customer_id) references customers (id),
   constraint wallet_customer_id_unique unique (customer_id)
 ) engine innodb;
+
+create table comments (
+  id int not null auto_increment,
+  customer_id varchar(100) not null,
+  title varchar(100) not null,
+  description text,
+  primary key (id),
+  constraint comments_customer_id_fk foreign key (customer_id) references customers (id)
+) engine innodb;
+
+insert into comments (customer_id, title, description)
+values
+("2", "komen 1 dari feri", "sample komen 1 dari feri"),
+("9", "komen 2 dari widya", "sample komen 2 dari widya"),
+("9", "komen 3 dari widya", "sample komen 3 dari widya"),
+("3", "komen 4 dari dandan", "sample komen 4 dari dandan");

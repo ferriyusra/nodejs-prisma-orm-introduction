@@ -21,8 +21,19 @@ model Customer {
   email String @unique
   phone String @unique
   wallet Wallet? //identify customer allow to not have wallet 
+  comments Comment[]
 
   @@map("customers")
+}
+
+model Comment {
+  id Int @id @default(autoincrement())
+  title String @db.VarChar(100)
+  description String @db.Text
+  customer_id String @db.VarChar(100)
+  customer Customer @relation(fields: [customer_id], references: [id])
+
+  @@map("comments")
 }
 
 model Wallet {
