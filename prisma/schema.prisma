@@ -16,7 +16,7 @@ model sample {
 }
 
 model Customer {
-  Id String @id
+  id String @id
   name String
   email String @unique
   phone String @unique
