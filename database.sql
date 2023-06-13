@@ -36,3 +36,9 @@ values ("P0006", "A", 1000, 100, "K2"),
 ("P0008", "C", 3000, 300, "K2"),
 ("P0009", "D", 4000, 400, "K2"),
 ("P00010", "E", 5000, 500, "K2");
+
+create table categories (
+  id int not null auto_increment,
+  name varchar(100) not null,
+  primary key (id)
+) engine innodb;
