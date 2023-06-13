@@ -1,0 +1,24 @@
+model Customer {
+  id String @id @db.VarChar(100)
+  name String
+  email String @unique
+  phone String @unique
+  wallet Wallet? //identify customer allow to not have wallet 
+  comments Comment[]
+  likes Like[]
+  loves Product[] @relation("loves") // implicit many to many
+
+  @@map("customers")
+}
+
+model Product {
+  id String @id
+  name String @db.VarChar(100)
+  price Int @db.Int
+  stock Int @db.SmallInt
+  category String  @db.VarChar(100)
+  likedBy Like[]
+  lovedBy Customer[] @relation("loves") //using implicit many to many
+
+  @@map("products")
+}

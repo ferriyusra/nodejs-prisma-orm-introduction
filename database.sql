@@ -67,3 +67,21 @@ values
 ("9", "komen 2 dari widya", "sample komen 2 dari widya"),
 ("9", "komen 3 dari widya", "sample komen 3 dari widya"),
 ("3", "komen 4 dari dandan", "sample komen 4 dari dandan");
+
+create table likes
+(
+    customer_id varchar(100) not null,
+    product_id  varchar(100) not null,
+    primary key (customer_id, product_id),
+    constraint likes_customer_id_fk foreign key (customer_id) references customers (id),
+    constraint likes_product_id_fk foreign key (product_id) references products (id)
+) engine innodb;
+
+create table _loves
+(
+    A varchar(100) not null,
+    B varchar(100) not null,
+    primary key (A, B),
+    constraint customer_loves_fk foreign key (A) references customers (id),
+    constraint product_loves_fk foreign key (B) references products (id)
+) engine innodb;
